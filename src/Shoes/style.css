@@ -1,0 +1,27 @@
+/* .details-field {
+    position: sticky;
+} */
+
+.card-img-top {
+    max-width: 200px;
+}
+
+.card-title {
+    font-size: 20px;
+}
+
+.cart-img {
+    max-width: 100px !important;
+}
+
+.table td {
+    vertical-align: middle !important;
+}
+
+.cart-btn {
+    width: 30px;
+    height: 30px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}

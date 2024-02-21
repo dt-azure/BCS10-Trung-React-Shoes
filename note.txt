@@ -1,0 +1,17 @@
+npx create-react-app .
+
+npx create-react-app folder-name
+
+npm start
+
+npm i
+
+Redux --------
+
+npm i redux react-redux
+
+Reducer: house logic to update state
+
+mapStateToProps
+
+mapDispatchToProps
