@@ -23,12 +23,31 @@ class Cart extends Component {
               return (
                 <tr>
                   <td>{item.name}</td>
-                  <td>{item.price * item.price}</td>
+                  <td>
+                    $
+                    {Intl.NumberFormat("en", {
+                      minimumFractionDigits: 2,
+                    }).format(item.price * item.amount)}
+                  </td>
                   <td>
                     <div className="container d-flex justify-content-center">
-                      <button className="btn btn-dark mr-3 cart-btn" onClick={() => { this.props.handleChangeAmount(item.id, -1) }}>-</button>
+                      <button
+                        className="btn btn-dark mr-3 cart-btn"
+                        onClick={() => {
+                          this.props.handleChangeAmount(item.id, -1);
+                        }}
+                      >
+                        -
+                      </button>
                       {item.amount}
-                      <button className="btn btn-dark ml-3 cart-btn" onClick={() => { this.props.handleChangeAmount(item.id, 1) }}>+</button>
+                      <button
+                        className="btn btn-dark ml-3 cart-btn"
+                        onClick={() => {
+                          this.props.handleChangeAmount(item.id, 1);
+                        }}
+                      >
+                        +
+                      </button>
                     </div>
                   </td>
                   <td>
@@ -39,7 +58,14 @@ class Cart extends Component {
                     />
                   </td>
                   <td>
-                    <button className="btn btn-danger" onClick={() => { this.props.handleChangeAmount(item.id, 0) }}>DELETE</button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => {
+                        this.props.handleChangeAmount(item.id, 0);
+                      }}
+                    >
+                      DELETE
+                    </button>
                   </td>
                 </tr>
               );
@@ -61,12 +87,12 @@ let mapDispatchToProps = (dispatch) => {
   return {
     handleChangeAmount: (id, value) => {
       dispatch({
-        type: 'CHANGE_AMOUNT',
+        type: "CHANGE_AMOUNT",
         id,
         value,
-      })
-    }
-  }
-}
+      });
+    },
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
