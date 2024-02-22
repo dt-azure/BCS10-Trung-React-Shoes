@@ -14,7 +14,7 @@ let initialState = {
 export let dataReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'CHANGE_DETAILS': {
-            state.details = action.item;
+            state.details = action.payload;
             
             return {...state};
         };
@@ -23,18 +23,16 @@ export let dataReducer = (state = initialState, action) => {
             let newCart = [...state.cart]
 
             let index = newCart.findIndex((n) => {
-              return n.id === action.item.id
+              return n.id === action.payload.id
             })
         
             if (index === -1) {
-              let newItem = { ...action.item, amount: 1 }
+              let newItem = { ...action.payload, amount: 1 }
               newCart.push(newItem)
             }
             else {
               newCart[index].amount++
             }
-
-            state.cart.push(action.item)
 
             state.cart = newCart;
 
@@ -45,12 +43,12 @@ export let dataReducer = (state = initialState, action) => {
           let newCart = [...state.cart]
 
           let index = newCart.findIndex((n) => {
-            return n.id === action.id
+            return n.id === action.payload.id
           })
 
-          newCart[index].amount += action.value;
+          newCart[index].amount += action.payload.value;
 
-          if (action.value === 0 || newCart[index].amount === 0) {
+          if (action.payload.value === 0 || newCart[index].amount === 0) {
             newCart.splice(index, 1);
           }
 

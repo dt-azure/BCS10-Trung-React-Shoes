@@ -3,21 +3,23 @@ import { ADD_TO_CART, CHANGE_AMOUNT, CHANGE_DETAILS } from "./constant"
 export let changeDetailsAction = (item) => {
     return {
         type: CHANGE_DETAILS,
-        item,
+        payload: item,
     };
 };
 
 export let addToCartAction = (item) => {
     return {
         type: ADD_TO_CART,
-        item,
+        payload: item,
     };
 };
 
 export let changeAmountAction = (id, value) => {
     return {
         type: CHANGE_AMOUNT,
-        id,
-        value,
+        payload: {
+            id,
+            value
+        }
     };
 };
