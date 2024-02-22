@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { changeAmountAction } from "./redux/action";
 
 class Cart extends Component {
   render() {
@@ -86,11 +87,7 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
   return {
     handleChangeAmount: (id, value) => {
-      dispatch({
-        type: "CHANGE_AMOUNT",
-        id,
-        value,
-      });
+      dispatch(changeAmountAction(id, value));
     },
   };
 };

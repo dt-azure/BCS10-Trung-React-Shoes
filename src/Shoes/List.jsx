@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Item from './Item'
 import { connect } from 'react-redux'
+import { addToCartAction, changeDetailsAction } from './redux/action'
 
 class List extends Component {
   render() {
@@ -39,17 +40,11 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
   return {
     handleClickView: (item) => {
-      dispatch({
-        type: 'CHANGE_DETAILS',
-        item,
-      })
+      dispatch(changeDetailsAction(item))
     },
 
     handleAddToCart: (item) => {
-      dispatch({
-        type: 'ADD_TO_CART',
-        item,
-      })
+      dispatch(addToCartAction(item))
     }
   }
 }

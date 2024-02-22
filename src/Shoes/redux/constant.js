@@ -1,0 +1,3 @@
+export const CHANGE_DETAILS = 'CHANGE_DETAILS'
+export const ADD_TO_CART = 'ADD_TO_CART'
+export const CHANGE_AMOUNT = 'CHANGE_AMOUNT'
